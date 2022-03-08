@@ -1,0 +1,18 @@
+import { Request, Response } from "express";
+import { FindAllAvailableUseCase } from "./findAllAvailableUseCase";
+
+
+
+
+
+
+class FindAllAvailableController {
+    async handle(request: Request, response: Response) {
+        const findAllAvailableUseCase = new FindAllAvailableUseCase()
+
+        const deliveries = await findAllAvailableUseCase.execute();
+
+        return response.json(deliveries);
+    }
+}
+export { FindAllAvailableController }
